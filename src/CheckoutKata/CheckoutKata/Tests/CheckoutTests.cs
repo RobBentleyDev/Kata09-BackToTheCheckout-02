@@ -20,7 +20,7 @@ namespace CheckoutKata.Tests
         {
             var checkout = new Checkout();
 
-            checkout.Scan("A");
+            checkout.Scan(new ItemCode("A"));
 
             checkout.Total().Should().Be(50);
         }

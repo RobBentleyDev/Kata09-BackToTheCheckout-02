@@ -1,8 +1,10 @@
+using CheckoutKata.Tests;
+
 namespace CheckoutKata.Code
 {
     public class Checkout
     {
-        public void Scan(string itemCode)
+        public void Scan(ItemCode itemCode)
         {
         }
 
