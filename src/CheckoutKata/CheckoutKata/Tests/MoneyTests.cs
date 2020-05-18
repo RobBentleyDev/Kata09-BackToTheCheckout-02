@@ -23,5 +23,15 @@ namespace CheckoutKata.Tests
 
             money1.Should().NotBe(money2);
         }
+
+        [Test]
+        public void TwoMoneyAddedShouldBeSumOfBoth()
+        {
+            var money = new Money(10);
+
+            money.Add(new Money(20));
+
+            money.Should().Be(new Money(30));
+        }
     }
 }

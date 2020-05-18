@@ -2,7 +2,7 @@ namespace CheckoutKata.Code
 {
     public class Money
     {
-        private readonly int _amount;
+        private int _amount;
 
         public Money(int amount)
         {
@@ -25,6 +25,16 @@ namespace CheckoutKata.Code
         public override int GetHashCode()
         {
             return _amount;
+        }
+
+        public override string ToString()
+        {
+            return _amount.ToString();
+        }
+
+        public void Add(Money amount)
+        {
+            _amount += amount._amount;
         }
     }
 }

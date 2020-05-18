@@ -24,5 +24,16 @@ namespace CheckoutKata.Tests
 
             checkout.Total().Should().Be(new Money(50));
         }
+
+        [Test]
+        public void GivenItemAAndItemB_WhenScanned_ThenTotalIsSumOfBothProducts()
+        {
+            var checkout = new Checkout();
+
+            checkout.Scan(new ItemCode("A"));
+            checkout.Scan(new ItemCode("B"));
+
+            checkout.Total().Should().BeEquivalentTo(new Money(80));
+        }
     }
 }
