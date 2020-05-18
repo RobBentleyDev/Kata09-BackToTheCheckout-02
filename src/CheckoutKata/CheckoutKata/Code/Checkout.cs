@@ -4,12 +4,12 @@ namespace CheckoutKata.Code
 {
     public class Checkout
     {
-        private readonly Dictionary<ItemCode, Money> _itemCatalog;
+        private readonly ItemCatalog _itemCatalog;
         private readonly List<ItemCode> _scannedItems;
 
         public Checkout()
         {
-            _itemCatalog = new Dictionary<ItemCode, Money>
+            _itemCatalog = new ItemCatalog
             {
                 {new ItemCode("A"), new Money(50)},
                 {new ItemCode("B"), new Money(30)}
@@ -29,7 +29,7 @@ namespace CheckoutKata.Code
 
             foreach (var item in _scannedItems)
             {
-                total.Add(_itemCatalog[item]);
+                total.Add(_itemCatalog.PriceOf(item));
             }
 
             return total;
