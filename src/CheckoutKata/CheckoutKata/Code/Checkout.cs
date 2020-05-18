@@ -5,7 +5,7 @@ namespace CheckoutKata.Code
     public class Checkout
     {
         private readonly ItemCatalog _itemCatalog;
-        private readonly List<ItemCode> _scannedItems;
+        private readonly ScannedItems _scannedItems;
 
         public Checkout()
         {
@@ -15,7 +15,7 @@ namespace CheckoutKata.Code
                 {new ItemCode("B"), new Money(30)}
             };
 
-            _scannedItems = new List<ItemCode>();
+            _scannedItems = new ScannedItems();
         }
 
         public void Scan(ItemCode itemCode)
