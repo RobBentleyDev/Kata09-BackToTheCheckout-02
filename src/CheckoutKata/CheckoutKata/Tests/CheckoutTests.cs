@@ -22,7 +22,7 @@ namespace CheckoutKata.Tests
 
             checkout.Scan(new ItemCode("A"));
 
-            checkout.Total().Should().Be(50);
+            checkout.Total().Should().Be(new Money(50));
         }
     }
 }

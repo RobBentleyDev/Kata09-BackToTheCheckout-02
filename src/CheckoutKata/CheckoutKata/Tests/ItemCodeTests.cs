@@ -12,7 +12,7 @@ namespace CheckoutKata.Tests
             var itemCode1 = new ItemCode("A");
             var itemCode2 = new ItemCode("A");
 
-            itemCode1.Should().BeEquivalentTo(itemCode2);
+            itemCode1.Should().Be(itemCode2);
         }
 
         [Test]
@@ -21,7 +21,7 @@ namespace CheckoutKata.Tests
             var itemCode1 = new ItemCode("A");
             var itemCode2 = new ItemCode("B");
 
-            itemCode1.Should().NotBeEquivalentTo(itemCode2);
+            itemCode1.Should().NotBe(itemCode2);
         }
     }
 }

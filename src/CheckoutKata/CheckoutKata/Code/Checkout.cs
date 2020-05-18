@@ -8,9 +8,9 @@ namespace CheckoutKata.Code
         {
         }
 
-        public int Total()
+        public Money Total()
         {
-            return 50;
+            return new Money(50);
         }
     }
 }
