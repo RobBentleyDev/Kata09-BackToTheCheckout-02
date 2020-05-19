@@ -22,6 +22,11 @@ namespace CheckoutKata.Code
             return _itemCodes.Dequeue();
         }
 
+        public bool HasItems()
+        {
+            return _itemCodes.Count > 0;
+        }
+
         protected bool Equals(Basket other)
         {
             return Equals(_itemCodes, other._itemCodes);

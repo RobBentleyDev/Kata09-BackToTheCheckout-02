@@ -1,5 +1,3 @@
-using CheckoutKata.Tests;
-
 namespace CheckoutKata.Code
 {
     public class Checkout
@@ -22,7 +20,10 @@ namespace CheckoutKata.Code
 
         internal void Scan(Basket basket)
         {
-            Scan(basket.RemoveNext());
+            while (basket.HasItems())
+            {
+                Scan(basket.RemoveNext());
+            }
         }
 
         public void Scan(ItemCode itemCode)

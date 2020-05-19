@@ -14,7 +14,7 @@ namespace CheckoutKata.Tests
 
             basket1.Should().Equal(basket2);
         }
-        
+
         [Test]
         public void TwoBasketTheSameShouldBeEqual()
         {
@@ -39,11 +39,39 @@ namespace CheckoutKata.Tests
                 new ItemCode("A")
             };
 
-            var basket2 = new Basket();
-
             basket1.RemoveNext();
 
-            basket1.Should().Equal(basket2);
+            basket1.Should().Equal(new Basket());
+        }
+
+        [Test]
+        public void HasItemsWhenBasketContainsOneItemShouldBeTrue()
+        {
+            var basket = new Basket
+            {
+                new ItemCode("A")
+            };
+
+            basket.HasItems().Should().BeTrue();
+        }
+
+        [Test]
+        public void HasItemsWhenBasketHasLastItemRemovedShouldBeFalse()
+        {
+            var basket = new Basket
+            {
+                new ItemCode("A")
+            };
+
+            basket.RemoveNext();
+
+            basket.HasItems().Should().BeFalse();
+        }
+
+        [Test]
+        public void HasItemsWhenBasketIsEmptyShouldBeFalse()
+        {
+            new Basket().HasItems().Should().BeFalse();
         }
     }
 }
