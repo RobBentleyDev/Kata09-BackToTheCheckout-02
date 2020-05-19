@@ -11,7 +11,8 @@ namespace CheckoutKata.Code
             {
                 {new ItemCode("A"), new Money(50)},
                 {new ItemCode("B"), new Money(30)},
-                {new ItemCode("C"), new Money(20)}
+                {new ItemCode("C"), new Money(20)},
+                {new ItemCode("D"), new Money(15)}
             };
 
             _scannedItems = new ScannedItems();
