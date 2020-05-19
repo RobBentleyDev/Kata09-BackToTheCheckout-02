@@ -66,8 +66,10 @@ namespace CheckoutKata.Tests
         {
             var checkout = new Checkout();
 
-            var basket = new Basket();
-            basket.Add(new ItemCode("A"));
+            var basket = new Basket
+            {
+                new ItemCode("A")
+            };
 
             checkout.Scan(basket);
 
