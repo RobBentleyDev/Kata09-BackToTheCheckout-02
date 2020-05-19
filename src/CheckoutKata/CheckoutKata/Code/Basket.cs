@@ -1,24 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+
 namespace CheckoutKata.Code
 {
-    public class Basket
+    public class Basket : IEnumerable<ItemCode>
     {
-        private ItemCode _itemCode;
+        private readonly Queue<ItemCode> _itemCodes;
+
+        public Basket()
+        {
+            _itemCodes = new Queue<ItemCode>();
+        }
 
         public void Add(ItemCode itemCode)
         {
-            _itemCode = itemCode;
+            _itemCodes.Enqueue(itemCode);
         }
 
         public ItemCode RemoveNext()
         {
-            var returnItem = new ItemCode(_itemCode.ToString());
-            _itemCode = null;
-            return returnItem;
+            return _itemCodes.Dequeue();
         }
 
         protected bool Equals(Basket other)
         {
-            return Equals(_itemCode, other._itemCode);
+            return Equals(_itemCodes, other._itemCodes);
         }
 
         public override bool Equals(object obj)
@@ -26,17 +32,22 @@ namespace CheckoutKata.Code
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Basket) obj);
+            return Equals((Basket)obj);
         }
 
         public override int GetHashCode()
         {
-            return (_itemCode != null ? _itemCode.GetHashCode() : 0);
+            return (_itemCodes != null ? _itemCodes.GetHashCode() : 0);
         }
 
-        public override string ToString()
+        public IEnumerator<ItemCode> GetEnumerator()
         {
-            return _itemCode.ToString();
+            return _itemCodes.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
