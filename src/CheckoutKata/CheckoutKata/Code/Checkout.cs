@@ -40,7 +40,18 @@ namespace CheckoutKata.Code
                 total.Add(_itemCatalog.PriceOf(item));
             }
 
+            total.Subtract(TotalDiscountGiven());
+
             return total;
+        }
+
+        private Money TotalDiscountGiven()
+        {
+            if (_scannedItems.CountOf(new ItemCode("A")) == 3)
+            {
+                return new Money(20);
+            }
+            return new Money(0);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CheckoutKata.Code
 {
@@ -25,6 +26,11 @@ namespace CheckoutKata.Code
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public int CountOf(ItemCode itemCode)
+        {
+            return _items.Count(item => item.Equals(itemCode));
         }
     }
 }

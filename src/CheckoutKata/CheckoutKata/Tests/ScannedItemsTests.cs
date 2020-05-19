@@ -46,5 +46,19 @@ namespace CheckoutKata.Tests
 
             scannedItems1.Should().NotEqual(scannedItems2);
         }
+
+        [Test]
+        public void CountOfTwoMatchingScannedItemsShouldBeTwo()
+        {
+            var scannedItems = new ScannedItems
+            {
+                new ItemCode("A"),
+                new ItemCode("A"),
+                new ItemCode("B"),
+                new ItemCode("C")
+            };
+
+            scannedItems.CountOf(new ItemCode("A")).Should().Be(2);
+        }
     }
 }

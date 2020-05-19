@@ -36,5 +36,10 @@ namespace CheckoutKata.Code
         {
             _amount += amount._amount;
         }
+
+        public void Subtract(Money amount)
+        {
+            _amount -= amount._amount;
+        }
     }
 }
