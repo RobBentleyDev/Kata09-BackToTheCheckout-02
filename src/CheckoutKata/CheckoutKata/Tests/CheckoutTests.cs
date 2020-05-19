@@ -33,7 +33,19 @@ namespace CheckoutKata.Tests
             checkout.Scan(new ItemCode("A"));
             checkout.Scan(new ItemCode("B"));
 
-            checkout.Total().Should().BeEquivalentTo(new Money(80));
+            checkout.Total().Should().Be(new Money(80));
+        }
+
+        [Test]
+        public void Given3Products_WhenScanned_ThenTotalIsSumOf3Products()
+        {
+            var checkout = new Checkout();
+
+            checkout.Scan(new ItemCode("A"));
+            checkout.Scan(new ItemCode("B"));
+            checkout.Scan(new ItemCode("C"));
+
+            checkout.Total().Should().Be(new Money(100));
         }
     }
 }

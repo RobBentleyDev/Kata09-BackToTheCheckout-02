@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace CheckoutKata.Code
 {
     public class Checkout
@@ -12,7 +10,8 @@ namespace CheckoutKata.Code
             _itemCatalog = new ItemCatalog
             {
                 {new ItemCode("A"), new Money(50)},
-                {new ItemCode("B"), new Money(30)}
+                {new ItemCode("B"), new Money(30)},
+                {new ItemCode("C"), new Money(20)}
             };
 
             _scannedItems = new ScannedItems();
