@@ -51,6 +51,10 @@ namespace CheckoutKata.Code
             {
                 return new Money(20);
             }
+            if (_scannedItems.CountOf(new ItemCode("B")) == 2)
+            {
+                return new Money(15);
+            }
             return new Money(0);
         }
     }

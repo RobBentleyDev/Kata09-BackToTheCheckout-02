@@ -108,5 +108,21 @@ namespace CheckoutKata.Tests
 
             checkout.Total().Should().Be(new Money(130));
         }
+
+        [Test]
+        public void GivenABasketOf2BProducts_WhenScanned_ThenTotalIsSpecialOfferPriceFor2()
+        {
+            var checkout = new Checkout();
+
+            var basket = new Basket
+            {
+                new ItemCode("B"),
+                new ItemCode("B")
+            };
+
+            checkout.Scan(basket);
+
+            checkout.Total().Should().Be(new Money(45));
+        }
     }
 }
