@@ -9,6 +9,16 @@ namespace CheckoutKata.Code
             _amount = amount;
         }
 
+        public void Add(Money amount)
+        {
+            _amount += amount._amount;
+        }
+
+        public void Subtract(Money amount)
+        {
+            _amount -= amount._amount;
+        }
+
         protected bool Equals(Money other)
         {
             return _amount == other._amount;
@@ -30,16 +40,6 @@ namespace CheckoutKata.Code
         public override string ToString()
         {
             return _amount.ToString();
-        }
-
-        public void Add(Money amount)
-        {
-            _amount += amount._amount;
-        }
-
-        public void Subtract(Money amount)
-        {
-            _amount -= amount._amount;
         }
     }
 }
